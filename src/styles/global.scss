@@ -1,11 +1,14 @@
+@use './variables.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Nunito', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: $color-text-light;
+  background-color: $color-primary-dark;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,11 +18,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: $link-color;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: $link-hover;
 }
 
 body {
@@ -28,6 +31,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: $body-bg;
 }
 
 h1 {
@@ -42,27 +46,18 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: $color-primary-dark;
+  color: $color-light;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition:
+    border-color 0.25s,
+    background-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: $color-primary;
+  background-color: $color-primary-dark;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

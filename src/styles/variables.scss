@@ -1,2 +1,19 @@
-$primary-color: #3498db;
-$secondary-color: #2ecc71;
+$color-primary-dark: #05386b;
+$color-primary: #379683;
+$color-background: #5cdb95;
+$color-surface: #8ee4af;
+$color-light: #edf5e1;
+
+$color-text-dark: #213547;
+$color-text-light: rgba(255, 255, 255, 0.87);
+
+$color-success: #4caf50;
+$color-warning: #ff9800;
+$color-error: #f44336;
+$color-info: #2196f3;
+
+$body-bg: $color-background;
+$text-color: $color-primary-dark;
+$heading-color: $color-primary-dark;
+$link-color: $color-primary-dark;
+$link-hover: $color-primary;

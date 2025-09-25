@@ -1,19 +1,36 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
   "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
     "baseUrl": "./src",
     "paths": {
-      "@api/*": ["api/*"],
-      "@store/*": ["store/*"],
-      "@components/*": ["components/*"],
+      "@pages": ["pages"],
       "@pages/*": ["pages/*"],
-      "@shared/*": ["shared/*"],
-      "@styles/*": ["styles/*"]
+      "@components": ["components"],
+      "@components/*": ["components/*"],
+      "@styles": ["styles"],
+      "@styles/*": ["styles/*"],
+      "@api": ["api"],
+      "@api/*": ["api/*"],
+      "@store": ["store"],
+      "@store/*": ["store/*"],
+      "@shared": ["shared"],
+      "@shared/*": ["shared/*"]
     }
-  }
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

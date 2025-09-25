@@ -1,4 +1,8 @@
+@use './variables.scss' as *;
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Nunito', sans-serif;
+  background-color: $body-bg;
+  color: $text-color;
 }
