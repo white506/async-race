@@ -1,0 +1,17 @@
+@use '../styles/variables' as *;
+
+.garage__form {
+  input[type='text'] {
+    padding: 0.5rem;
+    border: 1px solid $color-surface;
+    border-radius: 4px;
+    color: $text-color;
+  }
+
+  input[type='color'] {
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+  }
+}

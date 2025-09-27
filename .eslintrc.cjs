@@ -75,5 +75,11 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
       },
     },
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        'react/require-default-props': 'off',
+      },
+    },
   ],
 };
