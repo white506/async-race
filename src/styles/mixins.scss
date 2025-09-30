@@ -7,15 +7,15 @@
 }
 
 @mixin button {
-  padding: 8px 16px;
+  padding: $space-2 $space-4;
   border: none;
-  border-radius: 4px;
+  border-radius: $radius;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
   transition:
-    background-color 0.2s,
-    transform 0.1s;
+    background-color $transition-fast $easing-standard,
+    transform $transition-fast $easing-standard;
 
   &:active {
     transform: scale(0.98);
@@ -23,7 +23,7 @@
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgba($color-primary, 0.5);
+    box-shadow: $shadow-focus-ring;
   }
 
   &:disabled {

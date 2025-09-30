@@ -29,3 +29,56 @@ $text-color: $color-text-dark;
 $heading-color: $color-light;
 $link-color: $color-primary;
 $link-hover: $color-success;
+
+// Spacing scale (4px baseline)
+$space-0: 0;
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 20px;
+$space-6: 24px;
+$space-7: 32px;
+$space-8: 40px;
+$space-9: 60px;
+
+// Border radius tokens
+$radius-sm: 2px;
+$radius: 4px;
+$radius-md: 6px;
+$radius-lg: 8px;
+$radius-xl: 12px;
+
+// Z-index tokens
+$z-track-base: 0;
+$z-track-mark: 1;
+$z-track-finish: 2;
+$z-track-effects: 3;
+$z-car: 5;
+$z-modal: 100;
+
+// Component sizes
+$btn-height: 40px;
+$btn-width: 130px;
+$track-start-width: 10px;
+$track-finish-width: 24px;
+$car-row-height: 60px;
+$car-mini-scale: 0.7;
+
+// Timing & easing
+$transition-fast: 0.15s;
+$transition-normal: 0.3s;
+$transition-slow: 0.7s;
+$easing-standard: ease;
+$easing-emphasized: cubic-bezier(0.25, 1, 0.5, 1);
+
+// Shadows
+$shadow-sm: 0 2px 6px rgba($color-primary-dark, 0.5);
+$shadow-sm-hover: 0 4px 10px rgba($color-primary-dark, 0.6);
+$shadow-focus-ring: 0 0 0 2px rgba($color-primary, 0.5);
+$shadow-elevation: 0 1px 3px $color-shadow;
+
+// Track specific metrics
+$lane-gap-vertical: 8px;
+$finish-glow: 15px;
+$start-line-shadow: 5px;

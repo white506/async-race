@@ -6,7 +6,7 @@
   color: $text-color;
 
   &__header {
-    margin-bottom: 1rem;
+    margin-bottom: $space-4;
     h1 {
       color: $heading-color;
     }
@@ -16,27 +16,27 @@
     justify-content: space-between;
     display: flex;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: $space-5; 
     background-color: $color-surface;
-    padding: 10px;
+    padding: $space-2 + $space-1;
     flex-direction: row-reverse;
   }
 
   &__race-controls {
     display: flex;
-    gap: 10px;
+    gap: $space-2 + $space-1;
   }
 
   &__form {
     display: flex;
-    gap: 0.5rem;
+    gap: $space-2;
   }
 
   &__car-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem;
+    padding: $space-2;
     border-bottom: 1px solid $color-surface;
   }
   &__footer {
@@ -45,13 +45,13 @@
     background-color: $color-surface;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    padding: $space-2 + $space-1;
   }
 
   &__pagination {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: $space-4;
   }
   &__pagination--current {
     display: flex;
@@ -87,7 +87,7 @@
 
 .car-row__buttons {
   display: flex;
-  gap: 0.5rem;
+  gap: $space-2;
 }
 
 .winner-modal {
@@ -100,24 +100,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100;
+  z-index: $z-modal;
 
   &__content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: $color-light;
+    padding: $space-5;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-elevation;
     text-align: center;
     max-width: 400px;
 
     h3 {
       font-size: 24px;
-      margin-bottom: 10px;
+      margin-bottom: $space-2 + $space-1;
       color: $color-success;
     }
 
     p {
-      margin-bottom: 20px;
+      margin-bottom: $space-5;
     }
 
     button {

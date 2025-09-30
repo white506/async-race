@@ -28,18 +28,18 @@ h1 {
 .button {
   &--primary {
     color: $color-text-light;
-    width: 130px;
-    height: 40px;
-    padding: 10px 25px;
+    width: $btn-width;
+    height: $btn-height;
+    padding: $space-2 $space-5;
     font-family: 'Lato', sans-serif;
     font-weight: 500;
     background: transparent;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all $transition-normal $easing-standard;
     position: relative;
     display: inline-block;
     border: 1px solid $color-text-light;
-    box-shadow: 0 2px 6px rgba($color-primary-dark, 0.5);
+    box-shadow: $shadow-sm;
     overflow: hidden;
     z-index: 1;
 
@@ -52,11 +52,11 @@ h1 {
       left: 0;
       z-index: -1;
       background: $color-primary-dark;
-      transition: width 0.3s ease;
+      transition: width $transition-normal $easing-standard;
     }
 
     &:hover {
-      box-shadow: 0 4px 10px rgba($color-primary-dark, 0.6);
+      box-shadow: $shadow-sm-hover;
 
       &:after {
         width: 100%;
@@ -66,7 +66,7 @@ h1 {
     }
 
     &:active {
-      top: 2px;
+      top: $space-0 + 2px; 
     }
 
     &:disabled {

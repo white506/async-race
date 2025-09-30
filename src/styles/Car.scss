@@ -3,8 +3,8 @@
 .car-row {
   display: flex;
   width: 100%;
-  padding: 10px;
+  padding: $space-2 + $space-1;
   margin-bottom: 1rem;
   background-color: $color-surface;
-  gap: 10px;
+  gap: $space-5; 
 }
