@@ -1,21 +1,23 @@
 @use '../styles/variables.scss' as *;
 
 .layout {
-  padding: 20px;
   width: 100%;
 
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
     flex-direction: row-reverse;
-    gap: 50px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: $color-surface;
   }
 
   &__title {
     font-size: 2rem;
     font-weight: bold;
+    background-color: $color-primary-dark;
+    padding: 10px;
   }
 
   &__nav {
@@ -24,53 +26,10 @@
 
     &-link {
       text-decoration: none;
-      color: inherit;
+      color: $color-text-light;
     }
   }
 
   &__main {
-    margin-top: 1rem;
   }
-}
-
-.btn-16 {
-  margin: 10px;
-  color: $color-primary-dark;
-  width: 130px;
-  height: 40px;
-  padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 500;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  border: 1px solid $color-primary-dark;
-  box-shadow: 0 2px 6px rgba($color-primary-dark, 0.5);
-  overflow: hidden;
-}
-
-.btn-16:after {
-  position: absolute;
-  content: '';
-  width: 0;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  background: rgba($color-primary-dark, 0.1);
-  transition: width 0.3s ease;
-}
-
-.btn-16:hover {
-  box-shadow: 0 4px 10px rgba($color-primary-dark, 0.6);
-}
-
-.btn-16:hover:after {
-  width: 100%;
-}
-
-.btn-16:active {
-  top: 2px;
 }

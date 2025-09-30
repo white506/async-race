@@ -3,15 +3,75 @@
 .garage__form {
   input[type='text'] {
     padding: 0.5rem;
-    border: 1px solid $color-surface;
-    border-radius: 4px;
-    color: $text-color;
+    border: 1px solid $color-text-light;
+    background: linear-gradient(
+      to right,
+      $color-primary-dark 0%,
+      $color-primary-dark 100%
+    );
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: all 0.3s ease;
+    color: $color-text-light;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+
+    &::placeholder {
+      color: $color-text-light;
+      transition: color 0.3s ease;
+    }
+
+    &:focus {
+      outline: none;
+      color: $color-light;
+      background-size: 100% 100%;
+      box-shadow: 0 4px 10px rgba($color-primary-dark, 0.6);
+
+      &::placeholder {
+        color: $color-light;
+      }
+    }
+  }
+}
+
+input[type='color'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 40px;
+  height: 40px;
+  border: 1px solid $color-text-light;
+  border-radius: 4px;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  position: relative;
+  box-shadow: 0 2px 6px rgba($color-text-light, 0.5);
+  transition: all 0.3s ease;
+
+  &::-webkit-color-swatch-wrapper {
+    padding: 0;
   }
 
-  input[type='color'] {
-    width: 40px;
-    height: 40px;
+  &::-webkit-color-swatch {
     border: none;
-    cursor: pointer;
+    border-radius: 0;
+  }
+
+  &::-moz-color-swatch {
+    border: none;
+    border-radius: 0;
+  }
+
+  &:hover {
+    box-shadow: 0 4px 10px rgba($color-text-light, 0.6);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba($color-text-light, 0.5);
   }
 }

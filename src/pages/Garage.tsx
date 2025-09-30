@@ -1,53 +1,88 @@
-import { useState, useEffect } from 'react';
-import { getCars, createCar, updateCar, deleteCar, Car } from '@api/cars';
+import { useEffect, useState } from 'react';
+import { Car } from '@api/cars';
 import CarForm from '@components/CarForm';
-import CarRow from '@components/CarRow';
+import CarComponent from '@components/Car';
 import '../styles/Garage.scss';
+import '../styles/global.scss';
+import { useRace } from '../hooks';
+import {
+  useCars,
+  usePage,
+  useTotal,
+  useSelectedCar,
+  useCarActions,
+} from '../hooks/useZustandStore';
 
 function Garage() {
-  const [cars, setCars] = useState<Car[]>([]);
-  const [page, setPage] = useState(1);
-  const [total, setTotal] = useState(0);
-  const [selectedCar, setSelectedCar] = useState<Car | null>(null);
+  const [winner, setWinner] = useState<{
+    id: number;
+    time: number;
+    name: string;
+  } | null>(null);
+  const [isRacing, setIsRacing] = useState(false);
+
+  const cars = useCars();
+  const page = usePage();
+  const total = useTotal();
+  const selectedCar = useSelectedCar();
+
+  const {
+    setPage,
+    fetchCars,
+    createOrUpdateCar,
+    removeCar,
+    selectCar,
+    stopCarEngine,
+  } = useCarActions();
+
+  const { startRace } = useRace();
 
   useEffect(() => {
-    async function fetchCars() {
-      const data = await getCars(page, 7);
-      setCars(data);
-      const response = await fetch('http://localhost:3000/garage');
-      const allCars = await response.json();
-      setTotal(allCars.length);
-    }
-    fetchCars();
-  }, [page]);
+    fetchCars(page, 7);
+  }, [page, fetchCars]);
 
   const handleCreateOrUpdate = async (
     name: string,
     color: string,
     id?: number,
   ) => {
-    if (id) {
-      const updatedCar = await updateCar(id, name, color);
-      setCars((prevCars) =>
-        prevCars.map((car) => (car.id === id ? updatedCar : car)),
-      );
-    } else {
-      await createCar(name, color);
-      const updatedCars = await getCars(page, 7);
-      setCars(updatedCars);
-      setTotal((prevTotal) => prevTotal + 1);
-    }
-    setSelectedCar(null);
+    await createOrUpdateCar(name, color, id);
   };
 
   const handleDelete = async (id: number) => {
-    await deleteCar(id);
-    setCars(cars.filter((car) => car.id !== id));
-    setTotal((prevTotal) => prevTotal - 1);
+    await removeCar(id);
   };
 
   const handleSelect = (car: Car) => {
-    setSelectedCar(car);
+    selectCar(car);
+  };
+
+  const handleStartRace = async () => {
+    setIsRacing(true);
+    try {
+      const raceWinner = await startRace();
+
+      if (raceWinner) {
+        const winnerCar = cars.find((c: Car) => c.id === raceWinner.id);
+        setWinner({
+          id: raceWinner.id,
+          time: raceWinner.time,
+          name: winnerCar?.name || `Car #${raceWinner.id}`,
+        });
+      }
+    } catch {
+      // Error when starting the race
+    } finally {
+      setIsRacing(false);
+    }
+  };
+
+  const handleResetRace = () => {
+    cars.forEach((car: Car) => {
+      stopCarEngine(car.id);
+    });
+
+    setWinner(null);
   };
 
   return (
@@ -60,17 +95,53 @@ function Garage() {
           selectedCarId={selectedCar?.id || null}
           isUpdate={!!selectedCar}
         />
+        <div className="garage__race-controls">
+          <button
+            type="button"
+            className="button--race"
+            disabled={isRacing || cars.length === 0}
+            onClick={handleStartRace}
+          >
+            Race
+          </button>
+          <button
+            type="button"
+            className="button--reset"
+            onClick={handleResetRace}
+          >
+            Reset
+          </button>
+        </div>
+        {winner && (
+          <div className="winner-modal">
+            <div className="winner-modal__content">
+              <h3>🏆 Winner!</h3>
+              <p>
+                {winner.name} wins with time: {winner.time.toFixed(2)}s
+              </p>
+              <button
+                type="button"
+                className="button--primary"
+                onClick={() => setWinner(null)}
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        )}
       </div>
-      <div>
+      <div className="garage__cars">
         {cars.length === 0 ? (
           <p>No Cars</p>
         ) : (
-          cars.map((car) => (
-            <CarRow
+          cars.map((car: Car) => (
+            <CarComponent
               key={car.id}
-              car={car}
+              id={car.id}
+              name={car.name}
+              color={car.color}
               onSelect={() => handleSelect(car)}
-              onDelete={handleDelete}
+              onDelete={() => handleDelete(car.id)}
             />
           ))
         )}
@@ -80,19 +151,19 @@ function Garage() {
 
         <div className="garage__pagination">
           <button
-            className="btn-16"
+            className="button--primary"
             type="button"
-            onClick={() => setPage((p) => Math.max(p - 1, 1))}
+            onClick={() => setPage(Math.max(page - 1, 1))}
             disabled={page === 1}
           >
             Prev
           </button>
-          <span>Page {page}</span>
+          <span className="garage__pagination--current">Page {page}</span>
           <button
-            className="btn-16"
+            className="button--primary"
             type="button"
             onClick={() =>
-              setPage((p) => (p < Math.ceil(total / 7) ? p + 1 : p))
+              setPage(page < Math.ceil(total / 7) ? page + 1 : page)
             }
             disabled={page >= Math.ceil(total / 7)}
           >

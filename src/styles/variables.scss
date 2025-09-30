@@ -1,19 +1,31 @@
-$color-primary-dark: #05386b;
-$color-primary: #379683;
-$color-background: #5cdb95;
-$color-surface: #8ee4af;
-$color-light: #edf5e1;
+// Base colors
+$color-primary-dark: #1c1c1c;
+$color-primary: #e63946;
+$color-background: #2b2b2b;
+$color-surface: #545454;
+$color-light: #f1faee;
 
-$color-text-dark: #213547;
-$color-text-light: rgba(255, 255, 255, 0.87);
+// Text colors
+$color-text-dark: #f1f1f1;
+$color-text-light: #cccccc;
 
-$color-success: #4caf50;
-$color-warning: #ff9800;
-$color-error: #f44336;
-$color-info: #2196f3;
+// Status colors
+$color-success: #06d6a0;
+$color-warning: #ffd166;
+$color-error: #ef476f;
+$color-info: #118ab2;
 
+// Additional colors
+$color-asphalt: #2d2d2d;
+$color-metal: #8d99ae;
+$color-gold: #ffb703;
+$color-shadow: rgba(0, 0, 0, 0.4);
+$color-glow-red: rgba(230, 57, 70, 0.5);
+$color-glow-green: rgba(6, 214, 160, 0.5);
+
+// Layout variables
 $body-bg: $color-background;
-$text-color: $color-primary-dark;
-$heading-color: $color-primary-dark;
-$link-color: $color-primary-dark;
-$link-hover: $color-primary;
+$text-color: $color-text-dark;
+$heading-color: $color-light;
+$link-color: $color-primary;
+$link-hover: $color-success;

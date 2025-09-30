@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import '../styles/CarForm.scss';
+import '@styles/global.scss';
 
 interface CarFormProps {
   onSubmit: (name: string, color: string, id?: number) => void;
@@ -45,7 +46,7 @@ function CarForm({
         value={color}
         onChange={(e) => setColor(e.target.value)}
       />
-      <button type="submit">
+      <button type="submit" className="button--primary">
         {isUpdate ? 'Update' : 'Save'}
       </button>
     </form>
