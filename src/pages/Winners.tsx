@@ -24,10 +24,8 @@ function Winners() {
   }, [page, sortBy, sortOrder, fetchWinners]);
 
   useEffect(() => {
-    if (cars.length === 0) {
-      fetchCars(1, 100).catch(() => {});
-    }
-  }, [cars.length, fetchCars]);
+    fetchCars(1, 500).catch(() => {});
+  }, [fetchCars]);
 
   const toggleSort = useCallback(
     (field: SortBy) => {
@@ -54,10 +52,12 @@ function Winners() {
     [cars],
   );
 
-  const getSortArrow = useCallback(
+  const getSortArrowClass = useCallback(
     (field: SortBy) => {
-      if (sortBy !== field) return null;
-      return sortOrder === SortOrder.Asc ? '↑' : '↓';
+      if (sortBy !== field) return '';
+      return sortOrder === SortOrder.Asc
+        ? 'winners__sort-asc'
+        : 'winners__sort-desc';
     },
     [sortBy, sortOrder],
   );
@@ -67,17 +67,23 @@ function Winners() {
       <h1 className="winners__title">Winners ({total})</h1>
       <p className="winners__page">Page {page}</p>
 
-      <table className="winners-table">
+      <table className="winners__table">
         <thead>
-          <tr>
-            <th>Number</th>
-            <th>Car</th>
-            <th>Name</th>
-            <th className="sortable" onClick={() => toggleSort(SortBy.Wins)}>
-              Wins {getSortArrow(SortBy.Wins)}
+          <tr className="winners__row">
+            <th className="winners__cell winners__cell--header">Number</th>
+            <th className="winners__cell winners__cell--header">Car</th>
+            <th className="winners__cell winners__cell--header">Name</th>
+            <th
+              className={`winners__cell winners__cell--header sortable ${getSortArrowClass(SortBy.Wins)}`}
+              onClick={() => toggleSort(SortBy.Wins)}
+            >
+              Wins
             </th>
-            <th className="sortable" onClick={() => toggleSort(SortBy.Time)}>
-              Best time (seconds) {getSortArrow(SortBy.Time)}
+            <th
+              className={`winners__cell winners__cell--header sortable ${getSortArrowClass(SortBy.Time)}`}
+              onClick={() => toggleSort(SortBy.Time)}
+            >
+              Best time
             </th>
           </tr>
         </thead>
@@ -85,10 +91,10 @@ function Winners() {
           {winners.map((winner: Winner, index: number) => {
             const { name, color } = getCarInfo(winner.id);
             return (
-              <tr key={winner.id}>
-                <td>{(page - 1) * 10 + index + 1}</td>
-                <td className="car-cell">
-                  <div className="car-container">
+              <tr key={winner.id} className="winners__row">
+                <td className="winners__cell">{(page - 1) * 10 + index + 1}</td>
+                <td className="winners__cell winners__cell--car">
+                  <div className="winners__car-container">
                     <CarVisual
                       id={winner.id}
                       color={color}
@@ -98,9 +104,9 @@ function Winners() {
                     />
                   </div>
                 </td>
-                <td>{name}</td>
-                <td>{winner.wins}</td>
-                <td>{winner.time.toFixed(2)}</td>
+                <td className="winners__cell">{name}</td>
+                <td className="winners__cell">{winner.wins}</td>
+                <td className="winners__cell">{winner.time.toFixed(2)}</td>
               </tr>
             );
           })}

@@ -47,7 +47,7 @@ function CarComponent({ id, name, color, onSelect, onDelete }: CarProps) {
   }, [id, setCarElement, setTrackElement]);
 
   return (
-    <div className="car-row">
+    <div className="garage__car-row">
       <CarControls
         isRunning={isRunning}
         isBroken={isBroken}

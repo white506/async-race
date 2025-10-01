@@ -7,62 +7,151 @@
   max-width: 1200px;
   margin: 0 auto;
 
+  @include mobile {
+    padding: 10px;
+  }
+
   &__title {
     font-size: 24px;
     margin-bottom: 10px;
+
+    @include mobile {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
   }
 
   &__page {
     margin-bottom: 20px;
     font-size: 16px;
     color: $text-color;
+
+    @include mobile {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
   }
 
   &__pagination {
     margin-top: 20px;
     display: flex;
     gap: 10px;
+
+    @include mobile {
+      margin-top: 10px;
+      justify-content: center;
+    }
   }
-}
 
-.winners-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
 
-  th,
-  td {
+    @include mobile {
+      font-size: 0.85rem;
+    }
+  }
+
+  &__row {
+    &:nth-child(even) {
+      background-color: rgba($color-asphalt, 0.3);
+    }
+  }
+
+  &__cell {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid $color-asphalt;
-  }
 
-  th {
-    background-color: $color-asphalt;
-    font-weight: 600;
+    @include mobile {
+      padding: 5px;
+    }
 
-    &.sortable {
-      cursor: pointer;
-      user-select: none;
+    &:nth-child(1) {
+      width: 80px;
+    }
+    &:nth-child(2) {
+      width: 80px;
+    }
+    &:nth-child(3) {
+      width: auto;
+    }
+    &:nth-child(4) {
+      width: 100px;
+    }
+    &:nth-child(5) {
+      width: 150px;
+    }
 
-      &:hover {
-        background-color: color.adjust($color-asphalt, $lightness: -5%);
+    &--header {
+      background-color: $color-asphalt;
+      font-weight: 600;
+
+      @include mobile {
+        white-space: nowrap;
+        font-size: 0.8rem;
+      }
+
+      &.sortable {
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+
+        &:hover {
+          background-color: color.adjust($color-asphalt, $lightness: -5%);
+        }
+      }
+    }
+
+    &--car {
+      width: 80px;
+
+      @include mobile {
+        width: 50px;
       }
     }
   }
 
-  tr:nth-child(even) {
-    background-color: rgba($color-asphalt, 0.3);
-  }
-
-  .car-cell {
-    width: 80px;
-  }
-
-  .car-container {
+  &__car-container {
     width: 80px;
     height: 40px;
     position: relative;
     transform: scale(0.7);
+
+    @include mobile {
+      width: 50px;
+      transform: scale(0.5);
+    }
+  }
+
+  &__sort-asc,
+  &__sort-desc {
+    position: relative;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 5px;
+      vertical-align: middle;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__sort-asc::after {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #fff;
+  }
+
+  &__sort-desc::after {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #fff;
   }
 }

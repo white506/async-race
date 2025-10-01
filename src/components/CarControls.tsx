@@ -35,52 +35,52 @@ function CarControlsComponent({
   }, [isRunning, isBroken, isFinished]);
 
   return (
-    <div className="car-controls">
+    <div className="garage__car-controls">
       <div
-        className={`car-controls__status
-        ${isRunning ? 'car-controls__status--running' : ''}
-        ${isBroken ? 'car-controls__status--broken' : ''}
-        ${isFinished ? 'car-controls__status--finished' : ''}`}
+        className={`garage__car-controls-status
+        ${isRunning ? 'garage__car-controls-status--running' : ''}
+        ${isBroken ? 'garage__car-controls-status--broken' : ''}
+        ${isFinished ? 'garage__car-controls-status--finished' : ''}`}
       >
         {getEngineStatus()}
       </div>
 
-      <div className="car-controls__container">
-        <div className="car-controls__column">
+      <div className="garage__car-controls-container">
+        <div className="garage__car-controls-column">
           <button
             type="button"
-            className="button--primary car-controls__btn"
+            className="button--primary garage__car-controls-btn"
             onClick={onSelect}
           >
             select
           </button>
           <button
             type="button"
-            className="button--primary car-controls__btn"
+            className="button--primary garage__car-controls-btn"
             onClick={onDelete}
           >
             remove
           </button>
         </div>
 
-        <div className="car-controls__column">
+        <div className="garage__car-controls-column">
           <button
             type="button"
-            className="button--primary car-controls__btn"
+            className="button--primary garage__car-controls-btn"
             onClick={onStart}
             disabled={isRunning}
             title="Start engine"
           >
-            GO
+            A
           </button>
           <button
             type="button"
-            className="button--primary car-controls__btn"
+            className="button--primary garage__car-controls-btn"
             onClick={onStop}
             disabled={!isRunning}
             title="Stop engine"
           >
-            STOP
+            B
           </button>
         </div>
       </div>

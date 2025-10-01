@@ -1,5 +1,23 @@
 @use './variables.scss' as *;
 
+@mixin mobile {
+  @media (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 501px) and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 769px) {
+    @content;
+  }
+}
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -9,7 +27,6 @@
 @mixin button {
   padding: $space-2 $space-4;
   border: none;
-  border-radius: $radius;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
