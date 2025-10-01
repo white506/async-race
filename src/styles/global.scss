@@ -1,4 +1,5 @@
 @use './variables.scss' as *;
+@use './mixins.scss' as *;
 
 :root {
   font-family: 'Nunito', sans-serif;
@@ -43,6 +44,20 @@ h1 {
     overflow: hidden;
     z-index: 1;
 
+    @include tablet {
+      width: calc(#{$btn-width} * 0.9);
+      height: calc(#{$btn-height} * 0.9);
+      padding: $space-2 $space-4;
+      font-size: 0.95rem;
+    }
+
+    @include mobile {
+      width: calc(#{$btn-width} * 0.8);
+      height: calc(#{$btn-height} * 0.85);
+      padding: $space-1 $space-3;
+      font-size: 0.9rem;
+    }
+
     &:after {
       position: absolute;
       content: '';
@@ -66,7 +81,7 @@ h1 {
     }
 
     &:active {
-      top: $space-0 + 2px; 
+      top: $space-0 + 2px;
     }
 
     &:disabled {
