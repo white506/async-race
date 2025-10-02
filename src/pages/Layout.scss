@@ -116,7 +116,7 @@
 
     &-bar {
       width: 100%;
-      height: calc($space-0 - 1px);
+      height: 1px;
       background: $color-light;
       border-radius: $radius-sm;
       transition:

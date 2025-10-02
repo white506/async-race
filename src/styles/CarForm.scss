@@ -9,7 +9,7 @@
   }
 
   &-error {
-    color: $color-danger;
+    color: $color-error;
     font-size: 0.8rem;
     margin-top: 4px;
     animation: fadeIn 0.3s ease-in-out;
@@ -32,7 +32,7 @@
     font-weight: 500;
 
     &.error {
-      border-color: $color-danger;
+      border-color: $color-error;
     }
 
     &::placeholder {

@@ -11,6 +11,7 @@ The project demonstrates clean architecture, strict TypeScript usage, and produc
 ## Features
 
 ### Garage
+
 - **Full CRUD for cars**: create, edit, delete
 - **Color picker** with instant preview on the car icon
 - **Random car generator**: 100 cars per click
@@ -18,11 +19,13 @@ The project demonstrates clean architecture, strict TypeScript usage, and produc
 - **Empty states**: "No Cars" message and auto-step back when the last car is removed
 
 ### Winners
+
 - **Winners table**: car number, image, name, wins, best time
 - **Sorting**: by wins and time (ascending/descending)
 - **Pagination**: 10 winners per page
 
 ### Race
+
 - **Start engine**: waits for velocity → animates the car → sends drive request
 - **Stop engine**: car returns to starting position
 - **Start/Reset race** for all cars on the page
@@ -33,6 +36,7 @@ The project demonstrates clean architecture, strict TypeScript usage, and produc
 ---
 
 ## Technology Stack
+
 - **React 19** + **TypeScript (strict mode)**
 - **Zustand** for state management
 - **SCSS** for styling
@@ -42,6 +46,7 @@ The project demonstrates clean architecture, strict TypeScript usage, and produc
 ---
 
 ## Scoring Breakdown (395/400)
+
 - **UI deployment to GitHub Pages** — 10/10
 - **Commit & repo requirements** — 40/40
 - **Basic structure** — 80/80

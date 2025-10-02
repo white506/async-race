@@ -92,7 +92,7 @@
         $color-asphalt 0% 25%,
         $color-light 0% 50%
       )
-      50% / $space-3 $space-3;
+      50% $space-3 $space-3;
     z-index: 2;
     border-left: 1px solid rgba($color-light, 0.7);
     border-right: 1px solid rgba($color-light, 0.7);
