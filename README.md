@@ -56,3 +56,24 @@ The project demonstrates clean architecture, strict TypeScript usage, and produc
 - **ESLint + Prettier** — 10/10
 
 **Final Score: 395/400** — all key functionality works as required.
+
+---
+
+## Recent Improvements
+
+### Code Quality
+- Fixed Git commit message formats to follow Conventional Commits standards
+- Improved race controls blocking during races
+- Enhanced form validation
+- Added root path redirect to /garage
+- Fixed finish line styles for better visibility
+
+### Documentation
+- Updated README with detailed project information
+- Added scoring breakdown
+- Added deployment link
+
+### Technical Improvements
+- Switched to HashRouter for proper GitHub Pages routing
+- Fixed SCSS variable definitions
+- Improved mobile responsiveness
