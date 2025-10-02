@@ -94,6 +94,12 @@ function Garage() {
   const handleResetRace = () => {
     cars.forEach((car: Car) => {
       stopCarEngine(car.id);
+
+      const el = document.getElementById(`car-${car.id}`);
+      if (el) {
+        el.style.transition = 'transform 0.25s ease-in-out';
+        el.style.transform = 'translate3d(0, -50%, 0)';
+      }
     });
 
     setWinner(null);

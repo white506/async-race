@@ -136,11 +136,15 @@ export function useCarAnimation({
 
       const trackWidth = trackElement.clientWidth;
       const carWidth = carElement.clientWidth;
-
-      const finishLinePosition = trackWidth * 0.9;
-      const finishPosition = finishLinePosition + carWidth / 2;
       const duration = distance / velocity / 1000;
-      const afterFinishPosition = finishPosition + 30;
+
+      const SAFE_PADDING_RIGHT = 8;
+      const theoreticalFinish = trackWidth * 0.9 + carWidth / 2 + 30;
+      const maxAllowed = Math.max(
+        0,
+        trackWidth - carWidth - SAFE_PADDING_RIGHT,
+      );
+      const afterFinishPosition = Math.min(theoreticalFinish, maxAllowed);
 
       enableWillChange();
 
