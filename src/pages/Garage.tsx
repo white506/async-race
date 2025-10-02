@@ -175,6 +175,7 @@ function Garage() {
             initialColor={selectedCar?.color || '#000000'}
             selectedCarId={selectedCar?.id || null}
             isUpdate={!!selectedCar}
+            isRaceInProgress={isRacing}
           />
         </div>
         <div className="garage__controls-right">
@@ -200,6 +201,7 @@ function Garage() {
               id={car.id}
               name={car.name}
               color={car.color}
+              isRaceInProgress={isRacing}
               onSelect={() => handleSelect(car)}
               onDelete={() => handleDelete(car.id)}
             />
@@ -214,7 +216,8 @@ function Garage() {
             className="button--primary"
             type="button"
             onClick={() => setPage(Math.max(page - 1, 1))}
-            disabled={page === 1}
+            disabled={page === 1 || isRacing}
+            title={isRacing ? 'Not available during race' : 'Previous page'}
           >
             Prev
           </button>
@@ -225,7 +228,8 @@ function Garage() {
             onClick={() =>
               setPage(page < Math.ceil(total / 7) ? page + 1 : page)
             }
-            disabled={page >= Math.ceil(total / 7)}
+            disabled={page >= Math.ceil(total / 7) || isRacing}
+            title={isRacing ? 'Not available during race' : 'Next page'}
           >
             Next
           </button>

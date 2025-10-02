@@ -30,6 +30,23 @@ $heading-color: $color-light;
 $link-color: $color-primary;
 $link-hover: $color-success;
 
+// Animation
+$easing-decelerate: cubic-bezier(0.4, 0, 0.2, 1);
+$easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+$transition-fast: 0.15s;
+$transition-normal: 0.3s;
+
+// Sizing
+$btn-width: 130px;
+$btn-height: 40px;
+$border-radius-md: 4px;
+
+// Shadows
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+$shadow-sm-hover: 0 2px 5px rgba(0, 0, 0, 0.3);
+$shadow-elevation: 0 4px 10px rgba(0, 0, 0, 0.3);
+$shadow-focus-ring: 0 0 0 2px rgba(255, 255, 255, 0.4);
+
 // Spacing scale (4px baseline)
 $space-0: 0;
 $space-1: 4px;
