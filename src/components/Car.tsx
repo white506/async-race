@@ -9,11 +9,19 @@ interface CarProps {
   id: number;
   name: string;
   color: string;
+  isRaceInProgress?: boolean;
   onSelect?: () => void;
   onDelete?: () => void;
 }
 
-function CarComponent({ id, name, color, onSelect, onDelete }: CarProps) {
+function CarComponent({
+  id,
+  name,
+  color,
+  isRaceInProgress = false,
+  onSelect,
+  onDelete,
+}: CarProps) {
   const { isRunning, isBroken, isFinished } = useCarState(id);
   const { setCarState, startCarEngine, stopCarEngine, driveCar } =
     useCarActions(id);
@@ -52,6 +60,7 @@ function CarComponent({ id, name, color, onSelect, onDelete }: CarProps) {
         isRunning={isRunning}
         isBroken={isBroken}
         isFinished={isFinished}
+        isRaceInProgress={isRaceInProgress}
         onStart={startAnimation}
         onStop={stopAnimation}
         onSelect={onSelect}

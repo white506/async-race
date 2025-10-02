@@ -1,6 +1,20 @@
 @use '../styles/variables' as *;
 
 .garage__form {
+  &-input-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-error {
+    color: $color-danger;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
   input[type='text'] {
     padding: $space-1;
     border: 1px solid $color-text-light;
@@ -16,6 +30,10 @@
     color: $color-text-light;
     font-family: 'Lato', sans-serif;
     font-weight: 500;
+
+    &.error {
+      border-color: $color-danger;
+    }
 
     &::placeholder {
       color: $color-text-light;

@@ -6,6 +6,7 @@ interface CarControlsProps {
   isRunning: boolean;
   isBroken: boolean;
   isFinished: boolean;
+  isRaceInProgress: boolean;
   onStart: () => void;
   onStop: () => void;
   onSelect?: () => void;
@@ -16,6 +17,7 @@ function CarControlsComponent({
   isRunning,
   isBroken,
   isFinished,
+  isRaceInProgress,
   onStart,
   onStop,
   onSelect,
@@ -51,6 +53,10 @@ function CarControlsComponent({
             type="button"
             className="button--primary garage__car-controls-btn"
             onClick={onSelect}
+            disabled={isRaceInProgress || isRunning}
+            title={
+              isRaceInProgress ? 'Not available during race' : 'Select car'
+            }
           >
             select
           </button>
@@ -58,6 +64,10 @@ function CarControlsComponent({
             type="button"
             className="button--primary garage__car-controls-btn"
             onClick={onDelete}
+            disabled={isRaceInProgress || isRunning}
+            title={
+              isRaceInProgress ? 'Not available during race' : 'Remove car'
+            }
           >
             remove
           </button>
