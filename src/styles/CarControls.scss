@@ -17,11 +17,11 @@
   &__car-controls-container {
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: $space-3 - 2px;
     justify-content: space-between;
 
     @include mobile {
-      flex-direction: column;
+      margin-bottom: 10px;
     }
   }
 

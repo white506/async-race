@@ -2,7 +2,7 @@
 
 .garage__form {
   input[type='text'] {
-    padding: 0.5rem;
+    padding: $space-1;
     border: 1px solid $color-text-light;
     background: linear-gradient(
       to right,
@@ -12,21 +12,21 @@
     background-position: left bottom;
     background-repeat: no-repeat;
     background-size: 0% 100%;
-    transition: all 0.3s ease;
+    transition: all $transition-normal $easing-standard;
     color: $color-text-light;
     font-family: 'Lato', sans-serif;
     font-weight: 500;
 
     &::placeholder {
       color: $color-text-light;
-      transition: color 0.3s ease;
+      transition: color $transition-normal $easing-standard;
     }
 
     &:focus {
       outline: none;
       color: $color-light;
       background-size: 100% 100%;
-      box-shadow: 0 4px 10px rgba($color-primary-dark, 0.6);
+      box-shadow: 0 $space-1 $space-3 rgba($color-primary-dark, 0.6);
 
       &::placeholder {
         color: $color-light;
@@ -40,16 +40,16 @@ input[type='color'] {
   -moz-appearance: none;
   appearance: none;
 
-  width: 40px;
-  height: 40px;
+  width: $btn-height;
+  height: $btn-height;
   border: 1px solid $color-text-light;
-  border-radius: 4px;
+  border-radius: $border-radius-md;
   padding: 0;
   cursor: pointer;
   background: none;
   position: relative;
   box-shadow: 0 2px 6px rgba($color-text-light, 0.5);
-  transition: all 0.3s ease;
+  transition: all $transition-normal $easing-standard;
 
   &::-webkit-color-swatch-wrapper {
     padding: 0;
@@ -67,7 +67,7 @@ input[type='color'] {
 
   &:hover {
     box-shadow: 0 4px 10px rgba($color-text-light, 0.6);
-    transform: translateY(-2px);
+    transform: translateY(calc($space-0 / -2));
   }
 
   &:active {
