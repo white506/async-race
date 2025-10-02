@@ -84,7 +84,7 @@
   &__finish-line {
     content: '';
     position: absolute;
-    right: 18%;
+    right: 14%;
     top: 0;
     bottom: 0;
     width: $space-5;
@@ -92,7 +92,7 @@
         $color-asphalt 0% 25%,
         $color-light 0% 50%
       )
-      50% $space-3 $space-3;
+      50% / 12px 12px;
     z-index: 2;
     border-left: 1px solid rgba($color-light, 0.7);
     border-right: 1px solid rgba($color-light, 0.7);
@@ -212,6 +212,14 @@
         left: 6%;
         &::before {
           content: 'START';
+        }
+      }
+      
+      &--middle {
+        left: 50%;
+        transform: translateX(-50%);
+        &::before {
+          content: '50%';
         }
       }
 
